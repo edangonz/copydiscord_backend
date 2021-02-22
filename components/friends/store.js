@@ -19,12 +19,14 @@ async function getFriendsFileById(_id){
 //search userser that has similar segments of letters
 async function searchFriends(filter, _id){
     const list_user = await User.find(filter).limit(10);
-    let listFilterFriends = [];
-    for(let u of list_user){
-        if(u._id != _id)
-            listFilterFriends.push({_id: u._id, username: u.username});
-    }
-    return listFilterFriends;
+    if(list_user.length > 0){
+        let listFilterFriends = [];
+        for(let u of list_user){
+            if(u._id != _id)
+                listFilterFriends.push({_id: u._id, username: u.username});
+        }
+        return {code : 201, message: 'Getting friends filter', data : listFilterFriends};
+    } return {code : 207, message: 'Empty list friends'}
 }
 
 async function deleteFriend(filter_user, filter_friend){

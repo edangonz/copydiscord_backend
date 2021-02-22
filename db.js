@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+//'mongodb+srv://edangonz:8fGiiAtBjf-qyCe@cluster0.wtg7v.mongodb.net/copy_discord?retryWrites=true&w=majority'
 const db = require('mongoose');
 
 db.Promise = global.Promise;

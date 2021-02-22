@@ -29,7 +29,7 @@ async function sendRequest(transmitter, receiver) {
     } else
         return {code: 405, message : "Request pending"};
 }
-/*
+
 async function getRequets(filter){
     const list = await RequestFriend.find(filter);
     let list_requests = [];
@@ -39,7 +39,7 @@ async function getRequets(filter){
     }
     return list_requests;
 }
-
+/*
 async function aceptRequest(filter){
     const request = await RequestFriend.findOne(filter)
 
@@ -78,8 +78,8 @@ async function deleteRequet(filter){
 }
 */
 module.exports = {
-    sendRequest: sendRequest,/*
-    getRequets: getRequets,
+    sendRequest: sendRequest,
+    getRequets: getRequets,/*
     deleteRequet: deleteRequet,
     aceptRequest: aceptRequest,*/
 }

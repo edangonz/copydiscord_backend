@@ -9,17 +9,17 @@ function sendRequest(id_transmitter, id_receiver) {
             reject({code : 408});
     });
 }
-/*
-function getRequets(user){
+
+function getRequets(_id){
     return new Promise(async (resolve, reject) => {
-        let data = await store.getRequets({id_receiver: user.id_user})
+        let data = await store.getRequets({id_receiver: _id})
         if(data)
             resolve(data);
         else
             reject([]);
     });
 }
-
+/*
 function deleteRequet(_id, user){
     return new Promise(async (resolve, reject) => {
         let data = await store.deleteRequet({_id: _id, id_receiver: user.id_user})
@@ -41,8 +41,8 @@ function aceptRequest(_id, user){
 }
 */
 module.exports = {
-    sendRequest,/*
-    getRequets,
+    sendRequest,
+    getRequets,/*
     deleteRequet,
     aceptRequest,*/
 }

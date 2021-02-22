@@ -7,7 +7,7 @@ const response = require('../../network/response');
 router.post('/search', (req, res) => {
     const user = req.user;
     controller.searchFriends(req.body.username, user)
-        .then((filter_friends) => response.success(req, res, 201, filter_friends, 'Getting friends filter', 200, `Get filter friend ${user.username}`))
+        .then((body) => response.success(req, res, body.code, body.data, body.message, 200, `${body.message} ${user.username}`))
         .catch((err) => response.error(req, res, err.code, 'No getting filter friends', 400, `Error getting filter friends ${user.username}`));
 });
 
