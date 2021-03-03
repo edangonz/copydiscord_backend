@@ -20,7 +20,18 @@ function deleteFriend(_id, id_friend){
     });
 }
 
+function open_chat(_id, id_friend, new_state) {
+    return new Promise(async (resolve, reject) => {
+        let data = await store.open_chat(_id, id_friend, new_state);
+        if(data)
+            resolve(data)
+        else
+            reject({code : 204})
+    });
+}
+
 module.exports = {
     searchFriends,
     deleteFriend,
+    open_chat,
 }

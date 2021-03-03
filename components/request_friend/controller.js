@@ -10,39 +10,39 @@ function sendRequest(id_transmitter, id_receiver) {
     });
 }
 
-function getRequets(_id){
+function updateFriends(_id){
     return new Promise(async (resolve, reject) => {
-        let data = await store.getRequets({id_receiver: _id})
+        let data = await store.updateFriends({_id: _id})
         if(data)
             resolve(data);
         else
-            reject([]);
-    });
-}
-/*
-function deleteRequet(_id, user){
-    return new Promise(async (resolve, reject) => {
-        let data = await store.deleteRequet({_id: _id, id_receiver: user.id_user})
-        if(data)
-            resolve(data);
-        else
-            reject([]);
+            reject({code : 407});
     });
 }
 
-function aceptRequest(_id, user){
+function aceptRequest(_id, id_user){
     return new Promise(async (resolve, reject) => {
-        let data = await store.aceptRequest({_id: _id, id_receiver: user.id_user})
+        let data = await store.aceptRequest(_id, id_user)
         if(data)
             resolve(data);
         else
-            reject([]);
+            reject({ code : 407 });
     });
 }
-*/
+
+function deleteRequet(_id, id_user){
+    return new Promise(async (resolve, reject) => {
+        let data = await store.deleteRequet(_id, id_user)
+        if(data)
+            resolve(data);
+        else
+            reject({code : 407});
+    });
+}
+
 module.exports = {
     sendRequest,
-    getRequets,/*
+    updateFriends,
+    aceptRequest,
     deleteRequet,
-    aceptRequest,*/
 }
