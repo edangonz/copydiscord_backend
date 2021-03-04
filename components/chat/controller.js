@@ -1,5 +1,5 @@
 const store = require('./store');
-
+/*
 function addMessage(user, message) {
     return new Promise((resolve, reject) => {
         if(!user || !message){
@@ -20,18 +20,17 @@ function addMessage(user, message) {
         
     })
 }
-
-function getDataChat(filter){
+*/
+function getDataChat(id_chat){
     return new Promise(async (resolve, reject) => {
-        let data = await store.getDataChat({_id: filter})
+        let data = await store.getDataChat({_id: id_chat})
         if(data)
             resolve(data);
         else
-            reject([]);
+            reject({code : 504});
     });
 }
 
 module.exports = {
-    addMessage,
     getDataChat,
 }

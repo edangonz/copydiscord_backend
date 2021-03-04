@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors')
 const PORT = process.env.PORT || 5000
 
+const router_chat = require('./components/chat/network');
 const router_auth = require('./components/user/network');
 const router_friend = require('./components/friends/network');
 const router_request = require('./components/request_friend/network');
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/api/v0', router_auth);
+app.use('/api/v0/chat', middleware_auth, router_chat);
 app.use('/api/v0/friend', middleware_auth, router_friend);
 app.use('/api/v0/request_friend', middleware_auth, router_request);
 
